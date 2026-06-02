@@ -68,7 +68,6 @@ const Feed = () => {
                         Supercharge your marketing with a powerful, easy-to-use platform built for results.
                     </p>
                 </div>
-
                 <RecentMessages />
             </div>
 
