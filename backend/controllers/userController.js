@@ -41,7 +41,7 @@ export const getUserData = async (req, res) => {
 // Update user data
 export const UpdateUserData = async (req, res) => {
     try {
-        const { userId } = await req.auth()
+        const userId = req.userId
         let { username, bio, location, full_name } = req.body
 
         const tempUser = await User.findById(userId)

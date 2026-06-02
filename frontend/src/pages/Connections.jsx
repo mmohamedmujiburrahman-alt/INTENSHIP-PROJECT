@@ -9,19 +9,20 @@ import api from '../api/axios'
 
 const Connections = () => {
 
-    const [currentTab, setCurrentTap] = useState('Followers')
+    const [currentTab, setCurrentTab] = useState('Followers')
 
     const navigate = useNavigate()
     const {getToken} = useAuth()
     const dispatch = useDispatch()
 
-    const {connections, pendingconnections, followers, following} = useSelector
-    ((state)=>state.connections )
+    const {connections, pendingConnections, followers, following} = useSelector(
+        (state) => state.connections
+    )
 
     const dataArray = [
         { label: 'Followers', value: followers, icon: Users },
         { label: 'Following', value: following, icon: UserCheck },
-        { label: 'Pending', value: pendingconnections, icon: UserRoundPen },
+        { label: 'Pending', value: pendingConnections, icon: UserRoundPen },
         { label: 'Connections', value: connections, icon: UserPlus }
     ]
 
@@ -85,7 +86,7 @@ const Connections = () => {
                         const TabIcon = tab.icon
                         return (
                             <button
-                                onClick={() => setCurrentTap(tab.label)}
+                                onClick={() => setCurrentTab(tab.label)}
                                 key={tab.label}
                                 className={`cursor-pointer flex items-center px-3 py-1 text-sm rounded-md transition-colors ${currentTab === tab.label ? 'bg-white font-medium text-black' : 'text-gray-500 hover:text-black'}`}>
                                 <TabIcon className='w-4 h-4' />

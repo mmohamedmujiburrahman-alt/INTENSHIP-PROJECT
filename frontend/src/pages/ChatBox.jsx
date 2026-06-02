@@ -5,7 +5,8 @@ import { useDispatch, useSelector } from 'react-redux'
 import { useParams } from 'react-router-dom'
 import { useAuth } from '@clerk/clerk-react'
 import { addMessages, fetchMessages, resetMessages } from '../features/messages/messagesSlice'
-import toast from 'react-hot-toast'
+import toast from 'react-hot-toast';
+import api from '../api/axios'
 
 const ChatBox = () => {
 
@@ -43,6 +44,7 @@ const ChatBox = () => {
             const {data} = await api.post('/api/message/send', formData, {
                 headers: {Authorization: `Bearer ${token}`}
             })
+            console.log("Send message response", data);
             if(data.success){
                 setText('')
                 setImage(null)

@@ -9,7 +9,9 @@ export const fetchMessages = createAsyncThunk('messages/fetchMessages', async ({
     const {data} = await api.post('/api/message/get', {to_user_id: userId}, {
         headers: {Authorization: `Bearer ${token}`}
     })
+    console.log("Fetched messages in messagesSlice", data);
     return data.success ? data : null
+
 })
 
 const messagesSlice = createSlice({

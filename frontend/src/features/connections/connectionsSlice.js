@@ -21,6 +21,7 @@ export const fetchConnections = createAsyncThunk(
                 }
             }
         )
+        console.log("Connections data in connectionsSlice", data);
 
         return data.success ? data : null
     }
